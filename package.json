@@ -1,0 +1,119 @@
+{
+  "name": "php-features",
+  "version": "1.0.0",
+  "displayName": "PHP Features",
+  "description": "PHP added features for VSCode",
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "php",
+    "class",
+    "override",
+    "features"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniele Traverso",
+  "license": "MIT",
+  "activationEvents": [
+    "onLanguage:php"
+  ],
+  "main": "./extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "phpfeatures.newPHPClass",
+        "category": "File",
+        "title": "New PHP Class"
+      },
+      {
+        "command": "phpfeatures.gettersAndSetters",
+        "title": "Create getters and setters",
+        "category": "PHP Features",
+        "when": "resourceLangId == php"
+      },
+      {
+        "command": "phpfeatures.overrideMethod",
+        "title": "Override methods",
+        "category": "PHP Features",
+        "when": "resourceLangId == php"
+      }
+    ],
+    "keybindings": [],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "phpfeatures.newPHPClass",
+          "when": "explorerResourceIsFolder",
+          "group": "navigation@7"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "phpfeatures.gettersAndSetters",
+          "when": "resourceLangId == php"
+        },
+        {
+          "command": "phpfeatures.overrideMethod",
+          "when": "resourceLangId == php"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "phpfeatures.gettersAndSetters",
+          "when": "resourceLangId == php"
+        },
+        {
+          "command": "phpfeatures.overrideMethod",
+          "when": "resourceLangId == php"
+        }
+      ]
+    },
+    "configuration": {
+      "type": "object",
+      "title": "PHP Features",
+      "properties": {
+        "phpfeatures.activate.menuHelpers": {
+          "type": "boolean",
+          "default": true,
+          "description": "Add class-related helper commands and menus for PHP classes"
+        },
+        "phpfeatures.activate.typedVariables": {
+          "type": "boolean",
+          "default": true,
+          "description": "Use explicit types for variabled and returns when possibile (PHP 7+)"
+        },
+        "phpfeatures.activate.returnThis": {
+          "type": "boolean",
+          "default": false,
+          "description": "Return $this on generated setters"
+        },
+        "phpfeatures.class.composerJson": {
+          "type": "string",
+          "default": "composer.json",
+          "description": "Path to composer.json from workspace rootdir"
+        },
+        "phpfeatures.class.vendor": {
+          "type": "string",
+          "default": null,
+          "description": "Specifies default vendor if not extracted from composer.json"
+        },
+        "phpfeatures.class.detectTestCase": {
+          "type": "boolean",
+          "default": true,
+          "description": "Extends PHPUnit TestCase for generated classes with \"Test\" suffix"
+        },
+        "phpfeatures.class.detectInterface": {
+          "type": "boolean",
+          "default": true,
+          "description": "Default type to 'interface' for generated classes with \"Interface\" suffix"
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "php-parser": "^3.1.4"
+  }
+}
