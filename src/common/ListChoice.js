@@ -1,9 +1,9 @@
 const {  window } = require('vscode')
-exports.openChoice=async(items,callBack)=>{
+exports.openChoice=async(items,callBack,many=true)=>{
     const pick=window.createQuickPick();
     let selected=[];
     pick.items=items;
-    pick.canSelectMany=true;
+    pick.canSelectMany=(many?true:false);
     pick.onDidChangeSelection((selection)=>{
         selected=selection;
     });
