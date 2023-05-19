@@ -16,11 +16,15 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Daniele Traverso",
+  "publisher": "Daniele Traverso",
+	"engines": {
+		"vscode": "^1.34.0"
+	},
   "license": "MIT",
   "activationEvents": [
     "onLanguage:php"
   ],
-  "main": "./extension",
+  "main": "./extension.js",
   "contributes": {
     "commands": [
       {
