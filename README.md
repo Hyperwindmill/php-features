@@ -1,10 +1,12 @@
 PHP Features
 =============
+The goal of this extension is to bring helpful features for php daily development.
+THe implementation is slightly opinionated and when possibile will include settings to override behaviours.
+
 Inspired by PHP Companion (https://github.com/blanc-frederic/vs-phpcompanion)
 --------
+Features:
 
 * Create PHP class file content
-* Read Namespace from composer.json
-* Declare an interface if name ends with "Interface"
 * Create getters and setters in PHP classes
-* Override methods from parent class
+* Override method from parent class
