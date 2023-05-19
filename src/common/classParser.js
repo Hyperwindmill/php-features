@@ -37,7 +37,7 @@ class classParser{
                 }
             }
             if(astData.hasOwnProperty('children')){
-                if(typeof(astData.children)==='object' || typeof(astData.children)==='array'){
+                if(typeof(astData.children)==='object'){
                     for(const child of astData.children){
                         const childGood=this.findMyClass(child);
                         if(childGood) return childGood;

@@ -13,13 +13,16 @@
     "features"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "vscode:prepublish": "npm run esbuild-base -- --minify",
+    "esbuild-base": "esbuild ./extension.js --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
+    "esbuild": "npm run esbuild-base -- --sourcemap",
+    "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch"
   },
   "author": "Daniele Traverso",
   "publisher": "Daniele Traverso",
-	"engines": {
-		"vscode": "^1.34.0"
-	},
+  "engines": {
+    "vscode": "^1.34.0"
+  },
   "license": "MIT",
   "activationEvents": [
     "onLanguage:php"
@@ -119,5 +122,8 @@
   },
   "dependencies": {
     "php-parser": "^3.1.4"
+  },
+  "devDependencies": {
+    "esbuild": "^0.17.19"
   }
 }
