@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "displayName": "PHP Features",
   "description": "PHP added features for VSCode",
+  "repository": "https://github.com/Hyperwindmill/php-features",
+  "icon":"resources/icon.png",
   "categories": [
     "Programming Languages"
   ],
@@ -13,6 +15,7 @@
     "features"
   ],
   "scripts": {
+    "package":"vsce package",
     "vscode:prepublish": "npm run esbuild-base -- --minify",
     "esbuild-base": "esbuild ./extension.js --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
     "esbuild": "npm run esbuild-base -- --sourcemap",
@@ -27,7 +30,7 @@
   "activationEvents": [
     "onLanguage:php"
   ],
-  "main": "./extension.js",
+  "main": "./out/main.js",
   "contributes": {
     "commands": [
       {
