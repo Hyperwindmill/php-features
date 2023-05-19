@@ -51,7 +51,20 @@
         "when": "resourceLangId == php"
       }
     ],
-    "keybindings": [],
+    "keybindings": [
+      {
+        "command": "phpfeatures.gettersAndSetters",
+        "key": "alt+insert",
+        "mac": "alt+insert",
+        "when": "editorTextFocus && resourceLangId == php"
+      },
+      {
+        "command": "phpfeatures.overrideMethod",
+        "key": "ctrl+o",
+        "mac": "ctrl+o",
+        "when": "editorTextFocus && resourceLangId == php"
+      }
+    ],
     "menus": {
       "explorer/context": [
         {
